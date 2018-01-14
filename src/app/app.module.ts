@@ -12,6 +12,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { MapPage } from '../pages/map/map';
 import { ListPage } from '../pages/list/list';
+import { ProfilePage } from '../pages/profile/profile';
 import { ConnectivityProvider } from '../providers/connectivity/connectivity';
 import { GoogleMapsProvider } from '../providers/google-maps/google-maps';
 import { LocationsProvider } from '../providers/locations/locations';
@@ -21,7 +22,8 @@ import { LocationsProvider } from '../providers/locations/locations';
     MyApp,
     HomePage,
     MapPage,
-    ListPage
+    ListPage,
+    ProfilePage
   ],
   imports: [
     BrowserModule,
@@ -33,7 +35,8 @@ import { LocationsProvider } from '../providers/locations/locations';
     MyApp,
     HomePage,
     MapPage,
-    ListPage
+    ListPage,
+    ProfilePage
   ],
   providers: [
     StatusBar,

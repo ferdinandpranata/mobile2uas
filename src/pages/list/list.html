@@ -8,15 +8,28 @@
  
  
 <ion-content>
- 
-    <ion-list no-lines>
-        <ion-item *ngFor="let location of locations.data">
-            <ion-avatar item-left>
-                <ion-icon name="pin"></ion-icon>
-            </ion-avatar>
-            <h2>{{location.title}}</h2>
-            <p>{{location.distance}} miles</p>
-        </ion-item>
-    </ion-list>
+
+    <ion-card padding class="backgroundContent" *ngFor="let location of locations.data">
+            <ion-card-header>
+                <ion-avatar item-left>
+                    <ion-icon name="pin"></ion-icon>
+                </ion-avatar>
+                <h2>{{location.title}}</h2>
+            </ion-card-header>
+            <ion-card-content>
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                            <p>{{location.distance}} miles</p>
+                  </ion-col>
+                </ion-row>
+                <ion-row>
+                  <ion-col text-right>
+                    <button ion-button small clear (click)="showModal()">View Detail</button>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
  
 </ion-content>

@@ -1,7 +1,11 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { LocationsProvider } from '../../providers/locations/locations';
 import { GoogleMapsProvider } from '../../providers/google-maps/google-maps';
+import { Geolocation } from '@ionic-native/geolocation';
 import { IonicPage, NavController, Platform } from 'ionic-angular';
+import { map } from 'rxjs/operator/map';
+
+declare var google;
 
 /**
  * Generated class for the MapPage page.
@@ -22,7 +26,8 @@ export class MapPage {
   constructor(public navCtrl: NavController,
     public maps: GoogleMapsProvider,
     public platform: Platform,
-    public locations: LocationsProvider) {
+    public locations: LocationsProvider, 
+    public geoloc: Geolocation) {
 
   }
 
@@ -48,6 +53,11 @@ export class MapPage {
 
     });
 
+  }
+
+   onLocate()
+  {
+    let mapLoaded = this.maps.init(this.mapElement.nativeElement, this.pleaseConnect.nativeElement);
   }
 
 }

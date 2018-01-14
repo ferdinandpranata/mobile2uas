@@ -23,7 +23,7 @@ export class GoogleMapsProvider {
   markers: any = [];
   // add your apiKey for GoogleMaps
   // example: apiKey: string = 'ARfdaDE..';
-  apiKey: string;
+  apiKey: "AIzaSyAdnPwfydBvHl5t49DFVPOpLShCWdZJVpI";
 
   constructor(public connectivityService: ConnectivityProvider,
     public geolocation: Geolocation) {
@@ -99,13 +99,13 @@ export class GoogleMapsProvider {
       this.geolocation.getCurrentPosition().then((position) => {
 
         // UNCOMMENT FOR NORMAL USE
-        //let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+        let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
 
-        let latLng = new google.maps.LatLng(40.713744, -74.009056);
+        //let latLng = new google.maps.LatLng(40.713744, -74.009056);
 
         let mapOptions = {
           center: latLng,
-          zoom: 15,
+          zoom: 17,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
 
