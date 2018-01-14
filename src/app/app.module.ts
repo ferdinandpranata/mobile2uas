@@ -6,6 +6,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { Network } from '@ionic-native/network';
 import { Geolocation } from '@ionic-native/geolocation';
+import { AuthService } from '../services/Authservice';
 
 
 import { MyApp } from './app.component';
@@ -16,6 +17,7 @@ import { ProfilePage } from '../pages/profile/profile';
 import { ConnectivityProvider } from '../providers/connectivity/connectivity';
 import { GoogleMapsProvider } from '../providers/google-maps/google-maps';
 import { LocationsProvider } from '../providers/locations/locations';
+import { LoginPage } from '../pages/login/login';
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import { LocationsProvider } from '../providers/locations/locations';
     HomePage,
     MapPage,
     ListPage,
+    LoginPage,
     ProfilePage
   ],
   imports: [
@@ -36,6 +39,7 @@ import { LocationsProvider } from '../providers/locations/locations';
     HomePage,
     MapPage,
     ListPage,
+    LoginPage,
     ProfilePage
   ],
   providers: [
@@ -46,6 +50,7 @@ import { LocationsProvider } from '../providers/locations/locations';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     ConnectivityProvider,
     GoogleMapsProvider,
+    AuthService,
     LocationsProvider
   ]
 })
