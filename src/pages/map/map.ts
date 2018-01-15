@@ -32,32 +32,39 @@ export class MapPage {
   }
 
   ionViewDidLoad() {
-
+    console.log("load");
     this.platform.ready().then(() => {
-
-      let mapLoaded = this.maps.init(this.mapElement.nativeElement, this.pleaseConnect.nativeElement);
-      let locationsLoaded = this.locations.load();
-
-      Promise.all([
-        mapLoaded,
-        locationsLoaded
-      ]).then((result) => {
-
-        let locations = result[1];
-
-        for (let location of locations) {
-          this.maps.addMarker(location.latitude, location.longitude);
-        }
-
-      });
-
+      console.log("masuk");
+      this.loadMap();
     });
 
   }
 
-   onLocate()
+  loadMap()
   {
     let mapLoaded = this.maps.init(this.mapElement.nativeElement, this.pleaseConnect.nativeElement);
+    let locationsLoaded = this.locations.load();
+    console.log("loadMap");
+
+    Promise.all([
+      mapLoaded,
+      locationsLoaded
+    ]).then((result) => {
+      console.log("promised");
+      let locations = result[1];
+
+      for (let location of locations) {
+        this.maps.addMarker(location.latitude, location.longitude);
+        console.log("marker");
+      }
+
+    });
+    console.log("udah promise");
+  }
+
+   onLocate()
+  {
+    let mapLoaded = this.maps.showCurLocation();
   }
 
 }
