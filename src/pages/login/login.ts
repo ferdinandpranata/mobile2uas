@@ -29,6 +29,7 @@ export class LoginPage {
    }
 
    signup(){
+     console.log("pindah ahalaman");
      this.navCtrl.push(SignupPage);
    }
    

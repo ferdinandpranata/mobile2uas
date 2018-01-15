@@ -18,6 +18,7 @@ import { ConnectivityProvider } from '../providers/connectivity/connectivity';
 import { GoogleMapsProvider } from '../providers/google-maps/google-maps';
 import { LocationsProvider } from '../providers/locations/locations';
 import { LoginPage } from '../pages/login/login';
+import { SignupPage } from '../pages/signup/signup';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { LoginPage } from '../pages/login/login';
     MapPage,
     ListPage,
     LoginPage,
-    ProfilePage
+    ProfilePage,
+    SignupPage
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,8 @@ import { LoginPage } from '../pages/login/login';
     MapPage,
     ListPage,
     LoginPage,
-    ProfilePage
+    ProfilePage,
+    SignupPage
   ],
   providers: [
     StatusBar,

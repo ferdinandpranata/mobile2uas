@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AuthService } from '../../services/Authservice';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+
 /**
  * Generated class for the SignupPage page.
  *
@@ -14,26 +15,26 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   templateUrl: 'signup.html',
 })
 export class SignupPage {
-  userForm: FormGroup;
-  AuthService: any;
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    console.log('123');
+  
+  constructor(private AuthService : AuthService, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad SignupPage');
+    console.log('ionViewDidLoad signup');
   }
 
-  private initializeForm(){
-    this.userForm = new FormGroup({
-      email: new FormControl(null, Validators.required),
-      password: new FormControl(null, Validators.required)
-    })
-  }
+  signUpForm(form){
+    console.log(form.value.email + form.value.password+ form.value.Confirmpassword);
+    if(form.value.password == form.value.Confirmpassword){
+      this.AuthService.signup(form.value.email, form.value.password);
+    }
+    else{
+      console.log("password gak sama");
+    }
+   }
 
-  signUp(){
-    console.log(this.userForm.value)
-    this.AuthService.signup(this.userForm.value.email,this.userForm.value.password);
-  }
+
 }
+
+
+

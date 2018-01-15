@@ -16,19 +16,28 @@
   </ion-header>
   
   
-  <ion-content padding>
-    <form [formGroup]="userForm">
-      <ion-list>
-        <ion-item>
-            <ion-label fixed style="color:black;">Email</ion-label>
-            <ion-input formControlName="email" required placeholder="Email Address Here"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-label fixed style="color:black;">Password</ion-label>
-          <ion-input type="password" formControlName="password" required placeholder="Password Here"></ion-input>
-      </ion-item>
-      
-      <button ion-button block type="submit" [disabled]="!userForm.valid" (click)="signUp()">Sign Me Up</button>
-      </ion-list>
-    </form>
+  <ion-content>
+    <ion-card >
+        
+        <ion-card-content >
+          <form #form="ngForm" (ngSubmit)="signUpForm(form)" class="visible">
+              <ion-item >
+                <ion-input  type="email" name="email" ngModel required placeholder="Email Address Here"></ion-input>
+              </ion-item>
+              <ion-item >
+                <ion-input type="password" name="password" ngModel required placeholder="Password Here"></ion-input>
+              </ion-item>
+              <ion-item >
+                <ion-input type="password" name="Confirmpassword" ngModel required placeholder="Password Here"></ion-input>
+              </ion-item>
+              
+              
+              <button type="submit"  ion-button block outline color="light">Sign Up</button>
+          </form>
+         
+        </ion-card-content>
+      </ion-card>
+    
+  
   </ion-content>
+  
