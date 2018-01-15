@@ -6,7 +6,7 @@
 -->
 <ion-header>
   
-    <ion-navbar>
+    <ion-navbar transparent>
       <button ion-button menuToggle>
         <ion-icon name="menu"></ion-icon>
       </button>
@@ -16,10 +16,10 @@
   </ion-header>
   
   
-  <ion-content>
+  <ion-content pading class="backgroundImg">
     <ion-card >
         
-        <ion-card-content >
+        <ion-card-content class="signupcard">
           <form #form="ngForm" (ngSubmit)="signUpForm(form)" class="visible">
               <ion-item >
                 <ion-input  type="email" name="email" ngModel required placeholder="Email Address Here"></ion-input>
@@ -30,9 +30,10 @@
               <ion-item >
                 <ion-input type="password" name="Confirmpassword" ngModel required placeholder="Password Here"></ion-input>
               </ion-item>
-              
-              
+
+
               <button type="submit"  ion-button block outline color="light">Sign Up</button>
+              
           </form>
          
         </ion-card-content>
