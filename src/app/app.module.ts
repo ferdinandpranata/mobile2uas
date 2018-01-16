@@ -9,10 +9,6 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { AuthService } from '../services/Authservice';
 import { DBService } from '../services/Dbservice';
 import { EventService } from '../services/Eventservice';
-<<<<<<< HEAD
-import { DatePicker } from '@ionic-native/date-picker';
-=======
->>>>>>> b4f7ee9843c59a233dc31d30f3ce9a1890e6460d
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -70,12 +66,7 @@ import { ProfilEditPage } from '../pages/profil-edit/profil-edit';
     AuthService,
     DBService,
     EventService,
-<<<<<<< HEAD
-    LocationsProvider,
-    DatePicker
-=======
     LocationsProvider
->>>>>>> b4f7ee9843c59a233dc31d30f3ce9a1890e6460d
   ]
 })
 export class AppModule {}
