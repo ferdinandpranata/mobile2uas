@@ -7,7 +7,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { Network } from '@ionic-native/network';
 import { Geolocation } from '@ionic-native/geolocation';
 import { AuthService } from '../services/Authservice';
-
+import { DBService } from '../services/Dbservice';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -19,7 +19,6 @@ import { GoogleMapsProvider } from '../providers/google-maps/google-maps';
 import { LocationsProvider } from '../providers/locations/locations';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
-
 @NgModule({
   declarations: [
     MyApp,
@@ -28,7 +27,7 @@ import { SignupPage } from '../pages/signup/signup';
     ListPage,
     LoginPage,
     ProfilePage,
-    SignupPage
+    SignupPage  
   ],
   imports: [
     BrowserModule,
@@ -54,6 +53,7 @@ import { SignupPage } from '../pages/signup/signup';
     ConnectivityProvider,
     GoogleMapsProvider,
     AuthService,
+    DBService,
     LocationsProvider
   ]
 })

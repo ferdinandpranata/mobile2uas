@@ -4,10 +4,10 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import firebase from "firebase";
 import { AuthService } from '../services/Authservice';
+import { DBService } from '../services/Dbservice';
 
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
-
 import { SignupPage } from '../pages/signup/signup';
 @Component({
   templateUrl: 'app.html'
@@ -18,7 +18,7 @@ export class MyApp {
   loginPage = LoginPage;
 
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private AuthService : AuthService) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private AuthService : AuthService, private DBService : DBService) {
     platform.ready().then(() => {
 
       firebase.initializeApp({

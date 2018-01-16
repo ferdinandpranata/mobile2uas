@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AuthService } from '../../services/Authservice';
+import { DBService } from '../../services/Dbservice';
 /**
  * Generated class for the ProfilePage page.
  *
@@ -15,10 +16,13 @@ import { AuthService } from '../../services/Authservice';
 export class ProfilePage {
   
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private authService:AuthService) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private authService:AuthService, private dbService:DBService) {
   }
 
   ionViewDidLoad() {
+    let user = this.dbService.getUser();
+    console.log(user);
+    let aaa = this.dbService.updateData("ini admin", "https://www.reestickers.com/images/ree-logo-blue.png");
     console.log('ionViewDidLoad ProfilePage');
   }
 
