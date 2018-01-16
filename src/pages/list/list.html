@@ -1,26 +1,26 @@
 <ion-header>
  
-  <ion-navbar color="secondary">
+  <ion-navbar transparent>
     <ion-title>List</ion-title>
   </ion-navbar>
  
 </ion-header>
  
  
-<ion-content>
+<ion-content class="backgroundImg">
 
     <ion-card padding class="backgroundContent" *ngFor="let location of locations.data">
             <ion-card-header>
                 <ion-avatar item-left>
-                    <ion-icon name="pin"></ion-icon>
+                    <ion-icon name="pin" color="light"></ion-icon>
                 </ion-avatar>
-                <h2>{{location.title}}</h2>
+                <h2 class="WhiteText">{{location.title}}</h2>
             </ion-card-header>
             <ion-card-content>
               <ion-grid>
                 <ion-row>
                   <ion-col>
-                            <p>{{location.distance}} miles</p>
+                            <p class="WhiteText">{{location.distance}} miles</p>
                   </ion-col>
                 </ion-row>
                 <ion-row>

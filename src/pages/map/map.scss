@@ -22,11 +22,33 @@ page-map {
   }
  
   #map {
-      width: 100%;
+      width: 95%;
       height: 85%;
-      margin: 20;
+      margin: 2.5%;
       align-content: center;
       text-align: center;
+      
   }
+
+  .backgroundImg{
+    background-image: url('../../assets/images/BaseBackground.jpg');
+    background-size: cover;
+    background-position: center !important;
+    }
+
+    .toolbar-title {
+    color: #fff;
+    }
+
+    .back-button-icon-md,
+    .back-button-icon-ios,
+    .back-button-text-ios,
+    .back-button-icon-wp {
+    color: #fff;
+    }
+
+    button{
+        width: 95%;
+    }
 
 }

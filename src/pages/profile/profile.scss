@@ -3,4 +3,20 @@ page-profile {
         border-radius: 50%;
         margin: 10px;
     }    
+    .backgroundImg{
+        background-image: url('../../assets/images/BaseBackground.jpg');
+        background-size: cover;
+        background-position: center !important;
+        }
+    
+    .toolbar-title {
+    color: #fff;
+    }
+
+    .back-button-icon-md,
+    .back-button-icon-ios,
+    .back-button-text-ios,
+    .back-button-icon-wp {
+    color: #fff;
+    }
 }

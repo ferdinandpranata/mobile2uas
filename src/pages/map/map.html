@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar color="secondary">
+  <ion-navbar transparent>
     <ion-title>
       Nearby
     </ion-title>
@@ -7,7 +7,7 @@
  
 </ion-header>
  
-<ion-content>
+<ion-content class="backgroundImg">
  
   <div #pleaseConnect id="please-connect">
     <p>Please connect to the Internet...</p>
@@ -16,11 +16,11 @@
   <div #map id="map"></div>
 
   <div>
-      <button style="background-color:rgba(0,0,0,0.5); color:white;" ion-button outline block (click)="showModal()">
+      <button style="background-color:rgba(0,0,0,0.5); color:white; width: 95%; margin: 2.5%;" ion-button outline block (click)="showModal()">
           Add Event
           <ion-icon color="white" name="add-circle" style="margin-left:10px"></ion-icon>
         </button>
-        <button style="background-color:rgba(255,255,255,0.5); color:primary" ion-button outline block (click)="onLocate()">
+        <button style="background-color:rgba(255,255,255,1); color:primary; width: 95%; margin: 2.5%;" ion-button outline block (click)="onLocate()">
             Locate Me
           <ion-icon color="white" name="locate" style="margin-left:10px"></ion-icon>
         </button>
