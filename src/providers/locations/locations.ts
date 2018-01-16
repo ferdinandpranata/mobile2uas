@@ -25,7 +25,7 @@ export class LocationsProvider {
 
     return new Promise(resolve => {
 
-      this.http.get('assets/data/locations.json').map(res => res.json()).subscribe(data => {
+      this.http.get('https://nevent-mobile.firebaseio.com/Event.json').map(res => res.json()).subscribe(data => {
 
         this.data = this.applyHaversine(data.locations);
 
@@ -50,8 +50,8 @@ export class LocationsProvider {
     locations.map((location) => {
 
       let placeLocation = {
-        lat: location.latitude,
-        lng: location.longitude
+        lat: location.Latitude,
+        lng: location.Longitude
       };
 
       location.distance = this.getDistanceBetweenPoints(
