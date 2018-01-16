@@ -19,10 +19,11 @@ export class ProfilePage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private authService:AuthService, private dbService:DBService) {
   }
 
+  user = this.dbService.getUser();
+
   ionViewDidLoad() {
-    let user = this.dbService.getUser();
-    console.log(user);
     let aaa = this.dbService.updateData("ini admin", "https://www.reestickers.com/images/ree-logo-blue.png");
+    this.user = this.dbService.getUser();
     console.log('ionViewDidLoad ProfilePage');
   }
 

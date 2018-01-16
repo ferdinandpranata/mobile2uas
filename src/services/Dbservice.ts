@@ -1,18 +1,27 @@
 import firebase from 'firebase';
 
 export class DBService{
-    signup(email: string, password: string){
-        return firebase.auth().createUserWithEmailAndPassword(email,password);
+    getUser(){
+        var user = firebase.auth().currentUser;
+        var name, email, photoUrl, uid, emailVerified;
+        
+        if (user != null) {
+            name = user.displayName;
+            email = user.email;
+            photoUrl = user.photoURL;
+            emailVerified = user.emailVerified;
+            uid = user.uid;  // The user's ID, unique to the Firebase project. Do NOT use
+                            // this value to authenticate with your backend server, if
+                            // you have one. Use User.getToken() instead.
+            return ([name, email, photoUrl, emailVerified, uid]);
+        }
     }
-
-    signin(email:string, password:string){
-        console.log(email + password);
-        let result=firebase.auth().signInWithEmailAndPassword(email, password);
-        console.log(result);
+    updateData(displayName:string,photoUrl:string){
+        var user = firebase.auth().currentUser;
+        let result = user.updateProfile({
+            displayName: displayName,
+            photoURL: photoUrl
+          });
         return result;
-    }
-
-    logout() {
-        firebase.auth().signOut();
     }
 }
