@@ -9,6 +9,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { AuthService } from '../services/Authservice';
 import { DBService } from '../services/Dbservice';
 import { EventService } from '../services/Eventservice';
+import { DatePicker } from '@ionic-native/date-picker';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -63,7 +64,8 @@ import { LocationsProvider } from '../providers/locations/locations';
     AuthService,
     DBService,
     EventService,
-    LocationsProvider
+    LocationsProvider,
+    DatePicker
   ]
 })
 export class AppModule {}
