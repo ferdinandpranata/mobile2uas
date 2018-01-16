@@ -8,6 +8,7 @@ import { Network } from '@ionic-native/network';
 import { Geolocation } from '@ionic-native/geolocation';
 import { AuthService } from '../services/Authservice';
 import { DBService } from '../services/Dbservice';
+import { EventService } from '../services/Eventservice';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -54,6 +55,7 @@ import { SignupPage } from '../pages/signup/signup';
     GoogleMapsProvider,
     AuthService,
     DBService,
+    EventService,
     LocationsProvider
   ]
 })

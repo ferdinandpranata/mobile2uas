@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import firebase from "firebase";
 import { AuthService } from '../services/Authservice';
 import { DBService } from '../services/Dbservice';
+import { EventService } from '../services/Eventservice';
 
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';

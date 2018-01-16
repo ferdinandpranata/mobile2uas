@@ -13,6 +13,16 @@ export class AuthService{
         console.log(result);
         return result;
     }
+    updatePassword(newPassword:string){
+        var user = firebase.auth().currentUser;
+        
+        user.updatePassword(newPassword).then(function() {
+            return "update berhasil";
+        }).catch(function(error) {
+            return error;
+        });
+        
+    }
 
     logout() {
         firebase.auth().signOut();
