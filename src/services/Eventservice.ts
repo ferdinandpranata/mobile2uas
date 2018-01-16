@@ -8,16 +8,52 @@ import { AuthService } from "./Authservice";
 
 
 
+
 @Injectable()
 export class EventService {
     private EventList: Event[] = [];
     
     constructor(public http:Http, private authSvc:AuthService)
-    {}; 
+    {};
 
-    // addQuoteToFavorites(quote: Quote) {
-    //     this.favoriteQuotes.push(quote);
-    // }
+    loadEventList(token: string){
+        console.log("KKKKKKKKKKKK");
+        return this.http
+            .get('https://nevent-mobile.firebaseio.com/Event.json?auth=' + token)
+            .map((response: Response) => {
+                console.log("ini masuk gak??");
+                return response.json();
+            });
+
+
+            
+    }
+
+    setInit(event){
+        this.EventList = event.locations;
+        console.log("kjlhlkjhkljh", this.EventList);
+        
+    }
+
+
+    writeUserData(category, creator, date, description, langitude, longitude, nama) {
+        let len = this.EventList.length;
+        firebase.database().ref('Event/locations/'+len).set({
+            Category:category,
+            Creator:creator,
+            Date:date,
+            Description:description,
+            Latitude:langitude,
+            Longitude:longitude,
+            Name:nama
+
+        });
+      }
+
+    addEventTolist(quote: Event) {
+        console.log(this.EventList);
+        // this.EventList.push(quote);
+    }
 
     // removeQuoteFromFavorites(quote: Quote) {
     //     let ctr = 0;

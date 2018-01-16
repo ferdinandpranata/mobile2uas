@@ -1,5 +1,10 @@
 export interface Event {
-    title: String;
-    latitude: Number;
-    longitude: Number;
+    Category:String;
+    Creator:String;
+    Date:String;
+    Description:String;
+    Latitude:Number;
+    Longitude:Number;
+    Name:String;
 }
+
