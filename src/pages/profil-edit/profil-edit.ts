@@ -27,6 +27,8 @@ export class ProfilEditPage {
     console.log("asdf",form.value.name)
     let a = this.dbService.updateData(form.value.name,'https://firebasestorage.googleapis.com/v0/b/nevent-mobile.appspot.com/o/NeventTrans.png?alt=media&token=064b0a52-705a-45a1-9215-c153ea759950');
     console.log("ini a",a);
+    this.navCtrl.pop();
+    
   }
 
 }
