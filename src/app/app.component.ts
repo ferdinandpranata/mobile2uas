@@ -6,6 +6,7 @@ import firebase from "firebase";
 import { AuthService } from '../services/Authservice';
 import { DBService } from '../services/Dbservice';
 import { EventService } from '../services/Eventservice';
+import { RegisterEventPage } from '../pages/register-event/register-event';
 
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
@@ -33,10 +34,10 @@ export class MyApp {
 
       firebase.auth().onAuthStateChanged(user => {
         if(user){
-          console.log("MASUKIN");
+          console.log("Logged In");
           this.onLoad(this.homePage);
         }else{
-          console.log("PINDAH");
+          console.log("Need to Log In");
           this.onLoad(this.loginPage);
         }
     });

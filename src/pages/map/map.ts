@@ -5,6 +5,7 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { IonicPage, NavController, Platform, ModalController } from 'ionic-angular';
 import { map } from 'rxjs/operator/map';
 import { RegisterEventPage } from '../register-event/register-event';
+import { Location } from '@angular/common';
 
 declare var google;
 
@@ -44,6 +45,7 @@ export class MapPage {
 
   loadMap()
   {
+    let text: any;
     let mapLoaded = this.maps.init(this.mapElement.nativeElement, this.pleaseConnect.nativeElement);
     let locationsLoaded = this.locations.load();
     console.log("loadMap");
@@ -54,10 +56,9 @@ export class MapPage {
     ]).then((result) => {
       console.log("promised");
       let locations = result[1];
-
       for (let location of locations) {
-        this.maps.addMarker(location.Latitude, location.Longitude);
-        console.log("marker");
+        this.maps.addMarker(location.Latitude, location.Longitude, location);
+        //console.log("locations itu : ", location);
       }
 
     });
@@ -74,6 +75,11 @@ export class MapPage {
     let center = this.maps.getCenter(); 
     let modal = this.modalCtrl.create(RegisterEventPage, center);
     modal.present();
+  }
+
+  btnInfo()
+  {
+    console.log("Asu");
   }
 
 }

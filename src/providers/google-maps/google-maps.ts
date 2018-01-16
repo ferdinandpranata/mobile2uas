@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { ConnectivityProvider } from '../connectivity/connectivity'
 import { Geolocation } from '@ionic-native/geolocation';
+import { ModalController } from 'ionic-angular/components/modal/modal-controller';
+import { EventDetailPage } from '../../pages/event-detail/event-detail';
 
 /*
   Generated class for the GoogleMapsProvider provider.
@@ -17,6 +19,7 @@ export class GoogleMapsProvider {
   mapElement: any;
   pleaseConnect: any;
   map: any;
+  infoWindows: any;
   mapInitialised: boolean = false;
   mapLoaded: any;
   center: any;
@@ -27,7 +30,8 @@ export class GoogleMapsProvider {
   apiKey: "AIzaSyAdnPwfydBvHl5t49DFVPOpLShCWdZJVpI";
 
   constructor(public connectivityService: ConnectivityProvider,
-              public geolocation: Geolocation) {
+              public geolocation: Geolocation,
+              public modalCtrl: ModalController) {
 
   }
 
@@ -35,7 +39,7 @@ export class GoogleMapsProvider {
 
     this.mapElement = mapElement;
     this.pleaseConnect = pleaseConnect;
-
+    this.infoWindows = [];
     return this.loadGoogleMaps();
 
   }
@@ -108,40 +112,169 @@ export class GoogleMapsProvider {
           center: latLng,
           zoom: 15,
           tilt: 45,
+          //gestureHandling: "cooperative",
           mapTypeId: google.maps.MapTypeId.ROADMAP,
           styles: [
-            {"featureType":"all","elementType":"labels.text.fill","stylers":[{"saturation":36},{"color":"#333333"},{"lightness":40}]},
-            {"featureType":"all","elementType":"labels.text.stroke","stylers":[{"visibility":"on"},{"color":"#ffffff"},{"lightness":16}]},
-            {"featureType":"all","elementType":"labels.icon","stylers":[{"visibility":"off"}]},
-            {"featureType":"administrative","elementType":"all","stylers":[{"visibility":"off"}]},
-            {"featureType":"administrative","elementType":"geometry.fill","stylers":[{"color":"#fefefe"},{"lightness":20}]},
-            {"featureType":"administrative","elementType":"geometry.stroke","stylers":[{"color":"#fefefe"},{"lightness":17},{"weight":1.2}]},
-            {"featureType":"landscape","elementType":"geometry","stylers":[{"lightness":20},{"color":"#ececec"}]},
-            {"featureType":"landscape.man_made","elementType":"all","stylers":[{"visibility":"on"},{"color":"#f0f0ef"}]},
-            {"featureType":"landscape.man_made","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#f0f0ef"}]},
-            {"featureType":"landscape.man_made","elementType":"geometry.stroke","stylers":[{"visibility":"on"},{"color":"#d4d4d4"}]},
-            {"featureType":"landscape.natural","elementType":"all","stylers":[{"visibility":"on"},{"color":"#ececec"}]},
-            {"featureType":"poi","elementType":"all","stylers":[{"visibility":"on"}]},
-            {"featureType":"poi","elementType":"geometry","stylers":[{"lightness":21},{"visibility":"off"}]},
-            {"featureType":"poi","elementType":"geometry.fill","stylers":[{"visibility":"on"},{"color":"#d4d4d4"}]},
-            {"featureType":"poi","elementType":"labels.text.fill","stylers":[{"color":"#303030"}]},
-            {"featureType":"poi","elementType":"labels.icon","stylers":[{"saturation":"-100"}]},
-            {"featureType":"poi.attraction","elementType":"all","stylers":[{"visibility":"on"}]},
-            {"featureType":"poi.business","elementType":"all","stylers":[{"visibility":"on"}]},
-            {"featureType":"poi.government","elementType":"all","stylers":[{"visibility":"on"}]},
-            {"featureType":"poi.medical","elementType":"all","stylers":[{"visibility":"on"}]},
-            {"featureType":"poi.park","elementType":"all","stylers":[{"visibility":"on"}]},
-            {"featureType":"poi.park","elementType":"geometry","stylers":[{"color":"#dedede"},{"lightness":21}]},
-            {"featureType":"poi.place_of_worship","elementType":"all","stylers":[{"visibility":"on"}]},
-            {"featureType":"poi.school","elementType":"all","stylers":[{"visibility":"on"}]},
-            {"featureType":"poi.school","elementType":"geometry.stroke","stylers":[{"lightness":"-61"},{"gamma":"0.00"},{"visibility":"off"}]},
-            {"featureType":"poi.sports_complex","elementType":"all","stylers":[{"visibility":"on"}]},
-            {"featureType":"road.highway","elementType":"geometry.fill","stylers":[{"color":"#ffffff"},{"lightness":17}]},
-            {"featureType":"road.highway","elementType":"geometry.stroke","stylers":[{"color":"#ffffff"},{"lightness":29},{"weight":0.2}]},
-            {"featureType":"road.arterial","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":18}]},
-            {"featureType":"road.local","elementType":"geometry","stylers":[{"color":"#ffffff"},{"lightness":16}]},
-            {"featureType":"transit","elementType":"geometry","stylers":[{"color":"#f2f2f2"},{"lightness":19}]},
-            {"featureType":"water","elementType":"geometry","stylers":[{"color":"#dadada"},{"lightness":17}]}]
+            {
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#242f3e"
+                }
+              ]
+            },
+            {
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#746855"
+                }
+              ]
+            },
+            {
+              "elementType": "labels.text.stroke",
+              "stylers": [
+                {
+                  "color": "#242f3e"
+                }
+              ]
+            },
+            {
+              "featureType": "administrative.locality",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#d59563"
+                }
+              ]
+            },
+            {
+              "featureType": "poi",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#d59563"
+                }
+              ]
+            },
+            {
+              "featureType": "poi.park",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#263c3f"
+                }
+              ]
+            },
+            {
+              "featureType": "poi.park",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#6b9a76"
+                }
+              ]
+            },
+            {
+              "featureType": "road",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#38414e"
+                }
+              ]
+            },
+            {
+              "featureType": "road",
+              "elementType": "geometry.stroke",
+              "stylers": [
+                {
+                  "color": "#212a37"
+                }
+              ]
+            },
+            {
+              "featureType": "road",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#9ca5b3"
+                }
+              ]
+            },
+            {
+              "featureType": "road.highway",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#746855"
+                }
+              ]
+            },
+            {
+              "featureType": "road.highway",
+              "elementType": "geometry.stroke",
+              "stylers": [
+                {
+                  "color": "#1f2835"
+                }
+              ]
+            },
+            {
+              "featureType": "road.highway",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#f3d19c"
+                }
+              ]
+            },
+            {
+              "featureType": "transit",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#2f3948"
+                }
+              ]
+            },
+            {
+              "featureType": "transit.station",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#d59563"
+                }
+              ]
+            },
+            {
+              "featureType": "water",
+              "elementType": "geometry",
+              "stylers": [
+                {
+                  "color": "#17263c"
+                }
+              ]
+            },
+            {
+              "featureType": "water",
+              "elementType": "labels.text.fill",
+              "stylers": [
+                {
+                  "color": "#515c6d"
+                }
+              ]
+            },
+            {
+              "featureType": "water",
+              "elementType": "labels.text.stroke",
+              "stylers": [
+                {
+                  "color": "#17263c"
+                }
+              ]
+            }
+          ]
         }
 
         this.map = new google.maps.Map(this.mapElement, mapOptions);
@@ -202,8 +335,7 @@ export class GoogleMapsProvider {
 
   }
 
-  addMarker(lat: number, lng: number): void {
-
+  addMarker(lat: number, lng: number, locationData): void {
     let latLng = new google.maps.LatLng(lat, lng);
 
     let marker = new google.maps.Marker({
@@ -211,7 +343,7 @@ export class GoogleMapsProvider {
       animation: google.maps.Animation.DROP,
       position: latLng
     });
-
+    this.addInfoWindowToMarker(marker, locationData);
     this.markers.push(marker);
     
   }
@@ -239,21 +371,46 @@ export class GoogleMapsProvider {
     infowindow.open(this.map,marker);
   }
 
-  addInfoWindowToMarker(marker, text) {
-    var infoWindowContent = '<div id="content"><h1 id="firstHeading" class="firstHeading">' + text + '</h1></div>';
-    var infoWindow = new google.maps.InfoWindow({
+  addInfoWindowToMarker(marker, locationData) {
+    var infoWindowContent = 
+        "<div id='content'><p>" + locationData.Name + "</p></div>" + 
+        "<div><p>" + locationData.Date + "</p></div>" +
+        "<button class='button' id='myid' style='padding:3px; background:transparent; color:#666; border: solid 0.5px #aaa; border-radius:3px;'>Info</button>";
+    let infoWindow = new google.maps.InfoWindow({
       content: infoWindowContent
     });
+
+    google.maps.event.addListenerOnce(infoWindow, 'domready', () => {
+      document.getElementById('myid').addEventListener('click', () => {
+      this.showModal(locationData);
+      });
+      });
+
     marker.addListener('click', () => {
+      this.closeAllInfoWindows();
       infoWindow.open(this.map, marker);
     });
+    this.infoWindows.push(infoWindow); 
+   
+  }
+
+  closeAllInfoWindows() {
+    for(let window of this.infoWindows) {
+      window.close();
+    }
   }
 
   getCenter()
   {
     return this.map.getCenter();
   }
-
+  
+  showModal(data)
+  {
+    console.log(data);
+    let modal = this.modalCtrl.create(EventDetailPage, data);
+    modal.present();
+  }
 
   showCurLocation()
   {
@@ -262,18 +419,20 @@ export class GoogleMapsProvider {
       let latLng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
       this.map.setCenter(latLng);
 
-     let infoText = "You Are Here!"; 
+     let infoText = "Lokasi Anda"; 
 
-        let marker = new google.maps.Marker({
-          map: this.map,
-          animation: google.maps.Animation.DROP,
-          position: latLng
-        });
-      
-      this.addInfoWindow(marker, infoText);
-    
+     var infowindow = new google.maps.InfoWindow({
+      content:infoText
+      });
+      infowindow.setPosition(latLng);
+      this.closeAllInfoWindows();
+      infowindow.open(this.map);
+      setTimeout(function () {
+        infowindow.close();
+    }, 1500);
     }, (err) => {
       console.log(err);
-    });
+      });
+    
   }
 }
