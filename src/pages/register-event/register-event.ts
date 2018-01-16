@@ -19,7 +19,7 @@ export class RegisterEventPage {
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     console.log(navParams.data);
     this.location = navParams.data;
-    console.log(this.location);
+    console.log("loc : " + this.location);
   }
 
   ionViewDidLoad() {
