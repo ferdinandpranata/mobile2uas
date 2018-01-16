@@ -9,9 +9,21 @@ export class AuthService{
 
     signin(email:string, password:string){
         console.log(email + password);
-        let result=firebase.auth().signInWithEmailAndPassword(email, password);
-        console.log(result);
-        return result;
+        let result=firebase.auth().signInWithEmailAndPassword(email, password).then(function(){
+            console.log(result);
+            return result;
+        }).catch(function(error){
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            if (errorCode === 'auth/wrong-password') {
+              alert('Wrong password.');
+            } else {
+              alert(errorMessage);
+            }
+            console.log(error);
+          
+        });
+        
     }
     updatePassword(newPassword:string){
         var user = firebase.auth().currentUser;
@@ -22,6 +34,10 @@ export class AuthService{
             return error;
         });
         
+    }
+    
+    getActiveUser(){
+        return firebase.auth().currentUser;
     }
 
     logout() {
