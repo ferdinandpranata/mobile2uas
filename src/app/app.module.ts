@@ -23,6 +23,7 @@ import { RegisterEventPage } from '../pages/register-event/register-event';
 import { ConnectivityProvider } from '../providers/connectivity/connectivity';
 import { GoogleMapsProvider } from '../providers/google-maps/google-maps';
 import { LocationsProvider } from '../providers/locations/locations';
+import { ProfilEditPage } from '../pages/profil-edit/profil-edit';
 @NgModule({
   declarations: [
     MyApp,
@@ -33,7 +34,8 @@ import { LocationsProvider } from '../providers/locations/locations';
     ProfilePage,
     SignupPage,
     EventDetailPage,
-    RegisterEventPage  
+    RegisterEventPage,
+    ProfilEditPage  
   ],
   imports: [
     BrowserModule,
@@ -50,7 +52,8 @@ import { LocationsProvider } from '../providers/locations/locations';
     ProfilePage,
     SignupPage,
     EventDetailPage,
-    RegisterEventPage 
+    RegisterEventPage,
+    ProfilEditPage 
   ],
   providers: [
     StatusBar,
