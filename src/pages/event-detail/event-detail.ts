@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
+
 /**
  * Generated class for the EventDetailPage page.
  *
@@ -23,4 +24,7 @@ export class EventDetailPage {
     console.log('ionViewDidLoad EventDetailPage');
   }
 
+  back(){
+    this.navCtrl.pop();
+  }
 }
