@@ -249,6 +249,11 @@ export class GoogleMapsProvider {
     });
   }
 
+  getCenter()
+  {
+    return this.map.getCenter();
+  }
+
 
   showCurLocation()
   {

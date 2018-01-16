@@ -14,12 +14,15 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { MapPage } from '../pages/map/map';
 import { ListPage } from '../pages/list/list';
+import { LoginPage } from '../pages/login/login';
+import { SignupPage } from '../pages/signup/signup';
 import { ProfilePage } from '../pages/profile/profile';
+import { EventDetailPage } from '../pages/event-detail/event-detail';
+import { RegisterEventPage } from '../pages/register-event/register-event';
+
 import { ConnectivityProvider } from '../providers/connectivity/connectivity';
 import { GoogleMapsProvider } from '../providers/google-maps/google-maps';
 import { LocationsProvider } from '../providers/locations/locations';
-import { LoginPage } from '../pages/login/login';
-import { SignupPage } from '../pages/signup/signup';
 @NgModule({
   declarations: [
     MyApp,
@@ -28,7 +31,9 @@ import { SignupPage } from '../pages/signup/signup';
     ListPage,
     LoginPage,
     ProfilePage,
-    SignupPage  
+    SignupPage,
+    EventDetailPage,
+    RegisterEventPage  
   ],
   imports: [
     BrowserModule,
@@ -43,7 +48,9 @@ import { SignupPage } from '../pages/signup/signup';
     ListPage,
     LoginPage,
     ProfilePage,
-    SignupPage
+    SignupPage,
+    EventDetailPage,
+    RegisterEventPage 
   ],
   providers: [
     StatusBar,
