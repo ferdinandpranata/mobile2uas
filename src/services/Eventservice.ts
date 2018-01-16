@@ -15,62 +15,62 @@ export class EventService {
     constructor(public http:Http, private authSvc:AuthService)
     {}; 
 
-    addQuoteToFavorites(quote: Quote) {
-        this.favoriteQuotes.push(quote);
-    }
+    // addQuoteToFavorites(quote: Quote) {
+    //     this.favoriteQuotes.push(quote);
+    // }
 
-    removeQuoteFromFavorites(quote: Quote) {
-        let ctr = 0;
+    // removeQuoteFromFavorites(quote: Quote) {
+    //     let ctr = 0;
 
-        for(let fav of this.favoriteQuotes){
-            if(quote == fav){
-                this.favoriteQuotes.splice(ctr,1);
-                break;
-            }
-            else {
-                ctr++;
-            }
-        }
-    }
+    //     for(let fav of this.favoriteQuotes){
+    //         if(quote == fav){
+    //             this.favoriteQuotes.splice(ctr,1);
+    //             break;
+    //         }
+    //         else {
+    //             ctr++;
+    //         }
+    //     }
+    // }
 
-    getAllFavoriteQuotes() {
-        return this.favoriteQuotes.slice();
-    }
+    // getAllFavoriteQuotes() {
+    //     return this.favoriteQuotes.slice();
+    // }
 
-    isFavorite(quote: Quote) {
-        var index = this.favoriteQuotes.indexOf(quote);
+    // isFavorite(quote: Quote) {
+    //     var index = this.favoriteQuotes.indexOf(quote);
 
-        if(index >= 0){
-            return true;
-        }
-        else{
-            return false;
-        }
-    }
+    //     if(index >= 0){
+    //         return true;
+    //     }
+    //     else{
+    //         return false;
+    //     }
+    // }
 
-    clearAll(){
-        this.favoriteQuotes=[];
-    }
+    // clearAll(){
+    //     this.favoriteQuotes=[];
+    // }
 
-    storeList(token: string){
-        const uid = this.authSvc.getActiveUser().uid;
-        return this.http
-            .put('https://mobile2-97518.firebaseio.com/' + uid + '/fav-quotes.json?auth=' + token, this.favoriteQuotes)
-            .map((response: Response) => {
-                return response.json();
-            });
-    }
+    // storeList(token: string){
+    //     const uid = this.authSvc.getActiveUser().uid;
+    //     return this.http
+    //         .put('https://mobile2-97518.firebaseio.com/' + uid + '/fav-quotes.json?auth=' + token, this.favoriteQuotes)
+    //         .map((response: Response) => {
+    //             return response.json();
+    //         });
+    // }
 
-    loadList(token: string){
-        const uid = this.authSvc.getActiveUser().uid;
-        return this.http
-            .get('https://mobile2-97518.firebaseio.com/' + uid + '/fav-quotes.json?auth=' + token)
-            .map((response: Response) => {
-                return response.json();
-            });
-    }
+    // loadList(token: string){
+    //     const uid = this.authSvc.getActiveUser().uid;
+    //     return this.http
+    //         .get('https://mobile2-97518.firebaseio.com/' + uid + '/fav-quotes.json?auth=' + token)
+    //         .map((response: Response) => {
+    //             return response.json();
+    //         });
+    // }
 
-    setInit(quote: Quote[]){
-        this.favoriteQuotes = quote;
-    }
+    // setInit(quote: Quote[]){
+    //     this.favoriteQuotes = quote;
+    // }
 }
