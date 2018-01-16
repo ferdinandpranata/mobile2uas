@@ -11,6 +11,7 @@ import { RegisterEventPage } from '../pages/register-event/register-event';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
+import { ProfilEditPage } from '../pages/profil-edit/profil-edit';
 @Component({
   templateUrl: 'app.html'
 })

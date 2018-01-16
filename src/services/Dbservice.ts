@@ -22,6 +22,7 @@ export class DBService{
             displayName: displayName,
             photoURL: photoUrl
           });
-        return result;
+          let user1 = this.getUser();
+        return user1;
     }
 }

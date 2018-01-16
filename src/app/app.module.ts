@@ -9,7 +9,10 @@ import { Geolocation } from '@ionic-native/geolocation';
 import { AuthService } from '../services/Authservice';
 import { DBService } from '../services/Dbservice';
 import { EventService } from '../services/Eventservice';
+<<<<<<< HEAD
 import { DatePicker } from '@ionic-native/date-picker';
+=======
+>>>>>>> b4f7ee9843c59a233dc31d30f3ce9a1890e6460d
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -24,6 +27,7 @@ import { RegisterEventPage } from '../pages/register-event/register-event';
 import { ConnectivityProvider } from '../providers/connectivity/connectivity';
 import { GoogleMapsProvider } from '../providers/google-maps/google-maps';
 import { LocationsProvider } from '../providers/locations/locations';
+import { ProfilEditPage } from '../pages/profil-edit/profil-edit';
 @NgModule({
   declarations: [
     MyApp,
@@ -34,7 +38,8 @@ import { LocationsProvider } from '../providers/locations/locations';
     ProfilePage,
     SignupPage,
     EventDetailPage,
-    RegisterEventPage  
+    RegisterEventPage,
+    ProfilEditPage  
   ],
   imports: [
     BrowserModule,
@@ -51,7 +56,8 @@ import { LocationsProvider } from '../providers/locations/locations';
     ProfilePage,
     SignupPage,
     EventDetailPage,
-    RegisterEventPage 
+    RegisterEventPage,
+    ProfilEditPage 
   ],
   providers: [
     StatusBar,
@@ -64,8 +70,12 @@ import { LocationsProvider } from '../providers/locations/locations';
     AuthService,
     DBService,
     EventService,
+<<<<<<< HEAD
     LocationsProvider,
     DatePicker
+=======
+    LocationsProvider
+>>>>>>> b4f7ee9843c59a233dc31d30f3ce9a1890e6460d
   ]
 })
 export class AppModule {}
