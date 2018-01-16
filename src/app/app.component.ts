@@ -22,6 +22,7 @@ export class MyApp {
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private AuthService : AuthService, private DBService : DBService) {
     platform.ready().then(() => {
 
+      splashScreen.show();
       firebase.initializeApp({
         apiKey: "AIzaSyBsTKy-z-PWDOC-L_FRCy1pPelmvf7j4Yw",
         authDomain: "nevent-mobile.firebaseapp.com",
