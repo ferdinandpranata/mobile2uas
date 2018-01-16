@@ -32,10 +32,10 @@ export class MyApp {
 
       firebase.auth().onAuthStateChanged(user => {
         if(user){
-          console.log("MASUKIN");
+          console.log("Logged In");
           this.onLoad(this.homePage);
         }else{
-          console.log("PINDAH");
+          console.log("Need to Log In");
           this.onLoad(this.loginPage);
         }
     });
