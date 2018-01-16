@@ -2,8 +2,9 @@ import { Component, ElementRef, ViewChild } from '@angular/core';
 import { LocationsProvider } from '../../providers/locations/locations';
 import { GoogleMapsProvider } from '../../providers/google-maps/google-maps';
 import { Geolocation } from '@ionic-native/geolocation';
-import { IonicPage, NavController, Platform } from 'ionic-angular';
+import { IonicPage, NavController, Platform, ModalController } from 'ionic-angular';
 import { map } from 'rxjs/operator/map';
+import { RegisterEventPage } from '../register-event/register-event';
 
 declare var google;
 
@@ -27,7 +28,8 @@ export class MapPage {
     public maps: GoogleMapsProvider,
     public platform: Platform,
     public locations: LocationsProvider, 
-    public geoloc: Geolocation) {
+    public geoloc: Geolocation,
+    public modalCtrl: ModalController) {
 
   }
 
@@ -65,6 +67,13 @@ export class MapPage {
    onLocate()
   {
     let mapLoaded = this.maps.showCurLocation();
+  }
+
+  showModal()
+  {
+    let center = this.maps.getCenter(); 
+    let modal = this.modalCtrl.create(RegisterEventPage, center);
+    modal.present();
   }
 
 }
