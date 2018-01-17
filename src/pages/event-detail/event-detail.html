@@ -5,14 +5,19 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
-  <ion-navbar>
-    <ion-title>eventDetail</ion-title>
-  </ion-navbar>
-
+        <ion-navbar>
+            <ion-buttons left>
+                <button ion-button icon-only (click)="back()" class="my-style-for-modal">
+                    <ion-icon name="arrow-back"></ion-icon>
+                </button>
+                <ion-title >Detail</ion-title>
+            </ion-buttons>
+        </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
   <h1>Nama Event : </h1><h1>{{locationData.Name}}</h1>
+  <h1>Tanggal Event : </h1><h1>{{locationData.Date}}</h1>
+  <h1>Deskripsi Event : </h1><h1>{{locationData.Description}}</h1>
 </ion-content>

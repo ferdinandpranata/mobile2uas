@@ -7,12 +7,35 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>registerEvent</ion-title>
+    <ion-title>Register Event</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <h1>{{location}}</h1>
+    <ion-card >
+        
+
+        <ion-card-content class="createevent">
+          <!-- <h1>{{location}}</h1> -->
+          <form #form="ngForm" (ngSubmit)="eventForm(form)" class="visible">
+              <ion-item >
+                <ion-input  type="string" name="name" ngModel required placeholder="Name Event Here"></ion-input>
+              </ion-item>
+              <ion-item >
+                <ion-input type="string" name="description" ngModel required placeholder="Description Event Here"></ion-input>
+              </ion-item>
+           
+              <ion-item>
+                  <ion-label>Date</ion-label>
+                  <ion-input type="string" name="dateofevent" ngModel required placeholder="dd/mm/yyyy"></ion-input>
+                </ion-item>
+
+              <button type="submit"  ion-button block outline color="light">Add Event</button>
+              
+          </form>
+         
+        </ion-card-content>
+      </ion-card>
 </ion-content>

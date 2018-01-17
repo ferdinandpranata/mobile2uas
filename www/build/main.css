@@ -24730,6 +24730,11 @@ ion-navbar.toolbar {
   }
 }
 
+page-event-detail ion-buttons button[icon-only].my-style-for-modal {
+  margin: 0 6px;
+  min-width: 36px;
+}
+
 page-list ion-card.card {
   background: rgba(0, 0, 0, 0.8);
   border-radius: 10px;
