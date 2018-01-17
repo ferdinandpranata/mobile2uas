@@ -17,6 +17,7 @@
 
                 <h2 class="WhiteText">{{location.Name}}</h2>
                 <h3 class="WhiteText" style="white-space: pre-wrap;">{{location.Description}}</h3>
+                <h3 class="WhiteText" style="white-space: pre-wrap;">{{location.Category}}</h3>
 
             </ion-card-header>
             <ion-card-content>
@@ -25,6 +26,9 @@
                   <ion-col>
                             <p class="WhiteText">{{location.distance}} miles</p>
                   </ion-col>
+                  <ion-col>
+                    <p class="WhiteText">{{location.Creator}}</p>
+          </ion-col>
                 </ion-row>
                 <ion-row>
                   <ion-col text-right>

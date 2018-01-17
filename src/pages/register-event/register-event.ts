@@ -28,8 +28,8 @@ export class RegisterEventPage {
 
   eventForm(form){
       console.log(form);
-      console.log(form.value.name + form.value.description + form.value.dateofevent + this.location.lat() + this.location.lng());
-      this.eventService.writeUserData("Category","Creator",form.value.dateofevent ,form.value.description,this.location.lat(),this.location.lng(),form.value.name);
+      console.log(form.value.timeofevent +form.value.contact+ form.value.name + form.value.description + form.value.dateofevent + this.location.lat() + this.location.lng());
+      this.eventService.writeUserData(form.value.timeofevent.toString() ,form.value.contact.toString() ,form.value.dateofevent ,form.value.description,this.location.lat(),this.location.lng(),form.value.name);
     
   }
 

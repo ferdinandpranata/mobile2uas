@@ -24,15 +24,22 @@
           <!-- <h1>{{location}}</h1> -->
           <form #form="ngForm" (ngSubmit)="eventForm(form)" class="visible">
               <ion-item >
-                <ion-input  type="string" name="name" ngModel required placeholder="Name Event Here"></ion-input>
+                <ion-input  type="string" name="name" ngModel required placeholder="Name Event"></ion-input>
               </ion-item>
               <ion-item >
-                <ion-input type="string" name="description" ngModel required placeholder="Description Event Here"></ion-input>
+                <ion-input type="string" name="description" ngModel required placeholder="Description Event"></ion-input>
+              </ion-item>
+              <ion-item >
+                <ion-input type="string" name="contact" ngModel required placeholder="Contact"></ion-input>
               </ion-item>
            
               <ion-item>
                   <ion-label>Date</ion-label>
                   <ion-input type="string" name="dateofevent" ngModel required placeholder="dd/mm/yyyy"></ion-input>
+                </ion-item>
+                <ion-item>
+                  <ion-label>Time</ion-label>
+                  <ion-input type="string" name="timeofevent" ngModel required placeholder="hh:mm-hh:mm"></ion-input>
                 </ion-item>
 
               <button type="submit"  ion-button block outline color="light">Add Event</button>
