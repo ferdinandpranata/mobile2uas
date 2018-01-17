@@ -11,6 +11,7 @@ import { RegisterEventPage } from '../pages/register-event/register-event';
 import { HomePage } from '../pages/home/home';
 import { LoginPage } from '../pages/login/login';
 import { SignupPage } from '../pages/signup/signup';
+import { ProfilEditPage } from '../pages/profil-edit/profil-edit';
 @Component({
   templateUrl: 'app.html'
 })
@@ -23,6 +24,7 @@ export class MyApp {
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private AuthService : AuthService, private DBService : DBService) {
     platform.ready().then(() => {
 
+      splashScreen.show();
       firebase.initializeApp({
         apiKey: "AIzaSyBsTKy-z-PWDOC-L_FRCy1pPelmvf7j4Yw",
         authDomain: "nevent-mobile.firebaseapp.com",

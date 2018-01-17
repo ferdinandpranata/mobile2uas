@@ -24730,9 +24730,73 @@ ion-navbar.toolbar {
   }
 }
 
-page-event-detail ion-buttons button[icon-only].my-style-for-modal {
-  margin: 0 6px;
-  min-width: 36px;
+page-event-detail .scroll-content {
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+}
+
+page-event-detail a, page-event-detail p, page-event-detail h1, page-event-detail h2, page-event-detail h4, page-event-detail ion-card-header.card-header {
+  color: #fff !important;
+}
+
+page-event-detail .list > .item-block:first-child {
+  border: medium none;
+}
+
+page-event-detail .item {
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  border: medium none;
+}
+
+page-event-detail .item .text-input {
+  color: #fff;
+}
+
+page-event-detail .item input::-moz-placeholder {
+  color: #fff !important;
+}
+
+page-event-detail .item input:-moz-placeholder {
+  color: #fff !important;
+}
+
+page-event-detail .item *::-webkit-input-placeholder {
+  color: #fff !important;
+}
+
+page-event-detail .item *:-ms-input-placeholder {
+  color: #fff !important;
+}
+
+page-event-detail .item *:-moz-placeholder {
+  color: #fff !important;
+}
+
+page-event-detail .background {
+  background-color: black;
+}
+
+page-event-detail .toolbar-title {
+  color: #fff;
+}
+
+page-event-detail .back-button-icon-md,
+page-event-detail .back-button-icon-ios,
+page-event-detail .back-button-text-ios,
+page-event-detail .back-button-icon-wp {
+  color: #fff;
 }
 
 page-list ion-card.card {
@@ -24864,7 +24928,7 @@ page-map .scroll {
 
 page-map #map {
   width: 95%;
-  height: 82%;
+  height: 85%;
   margin: 2.5%;
   -webkit-align-content: center;
   -ms-flex-line-pack: center;
@@ -24889,10 +24953,6 @@ page-map .back-button-icon-wp {
   color: #fff;
 }
 
-page-map button {
-  width: 95%;
-}
-
 page-profile .profilepic {
   border-radius: 50%;
   margin: 10px;
@@ -24912,6 +24972,96 @@ page-profile .back-button-icon-md,
 page-profile .back-button-icon-ios,
 page-profile .back-button-text-ios,
 page-profile .back-button-icon-wp {
+  color: #fff;
+}
+
+page-register-event .scroll-content {
+  -webkit-align-content: center;
+  -ms-flex-line-pack: center;
+  align-content: center;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  text-align: center;
+}
+
+page-register-event ion-card.card {
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px;
+}
+
+page-register-event a, page-register-event p, page-register-event h2, page-register-event ion-card-header.card-header {
+  color: #fff !important;
+}
+
+page-register-event .list > .item-block:first-child {
+  border: medium none;
+}
+
+page-register-event .item {
+  margin-bottom: 10px;
+  background: rgba(255, 255, 255, 0.7);
+  border: medium none;
+}
+
+page-register-event .item .text-input {
+  color: #fff;
+}
+
+page-register-event .item input::-moz-placeholder {
+  color: #fff !important;
+}
+
+page-register-event .item input:-moz-placeholder {
+  color: #fff !important;
+}
+
+page-register-event .item *::-webkit-input-placeholder {
+  color: #fff !important;
+}
+
+page-register-event .item *:-ms-input-placeholder {
+  color: #fff !important;
+}
+
+page-register-event .item *:-moz-placeholder {
+  color: #fff !important;
+}
+
+page-register-event .icon {
+  padding-right: 10px;
+}
+
+page-register-event .bottom {
+  font-size: 12px;
+}
+
+page-register-event .image {
+  border-radius: 360px;
+  background: transparent;
+  opacity: transparent;
+}
+
+page-register-event .backgroundImg {
+  background-image: url("../../assets/images/BaseBackground.jpg");
+  background-size: cover;
+  background-position: center !important;
+}
+
+page-register-event .toolbar-title {
+  color: #fff;
+}
+
+page-register-event .back-button-icon-md,
+page-register-event .back-button-icon-ios,
+page-register-event .back-button-text-ios,
+page-register-event .back-button-icon-wp {
   color: #fff;
 }
 

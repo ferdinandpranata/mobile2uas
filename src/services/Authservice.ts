@@ -4,6 +4,7 @@ export class AuthService{
     signup(email: string, password: string){
         let res = firebase.auth().createUserWithEmailAndPassword(email,password);
         console.log(res);
+        
         return res;
     }
 
